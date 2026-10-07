@@ -35,3 +35,8 @@ secrets.json
 
 # Data files (raw JSON from extract, not tracked)
 data/
+
+# dbt
+energy_dbt/target/
+energy_dbt/dbt_packages/
+energy_dbt/logs/

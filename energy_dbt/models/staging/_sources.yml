@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: databricks
+    database: workspace
+    schema: default
+    tables:
+      - name: smard_silver
+        columns:
+          - name: event_time
+            tests:
+              - not_null
+          - name: metric
+            tests:
+              - accepted_values:
+                  arguments:
+                    values:
+                      - wind_onshore
+                      - wind_offshore
+                      - photovoltaik
+                      - netzlast
+                      - price_de_lu
+      - name: openmeteo_silver
+        columns:
+          - name: event_time
+            tests:
+              - not_null
+          - name: location
+            tests:
+              - accepted_values:
+                  arguments:
+                    values:
+                      - hamburg
+                      - muenchen
+                      - berlin
+                      - karlsruhe
+          - name: wind_speed_100m
+            tests:
+              - not_null
+          - name: shortwave_radiation
+            tests:
+              - not_null
+          - name: temperature_2m
+            tests:
+              - not_null

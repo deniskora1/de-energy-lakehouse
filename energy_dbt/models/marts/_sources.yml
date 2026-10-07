@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: gold
+    database: workspace
+    schema: default
+    tables:
+      - name: gold_energy_weather
+        columns:
+          - name: event_time
+            tests:
+              - not_null
+          - name: netzlast
+            tests:
+              - not_null
+          - name: wind_onshore
+            tests:
+              - not_null
+          - name: wind_offshore
+            tests:
+              - not_null
+          - name: photovoltaik
+            tests:
+              - not_null
+          - name: price_de_lu
+            tests:
+              - not_null
+          - name: renewable_share_pct
+            tests:
+              - not_null
